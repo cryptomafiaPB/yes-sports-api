@@ -18,6 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="https://i.imgur.com/L9EqYmK.png" type="image" />
       <body className={inter.className}>
         <Sidebar />
         <TopBar />
