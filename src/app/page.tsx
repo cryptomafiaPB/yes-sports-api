@@ -1,113 +1,186 @@
-import Image from "next/image";
-
 export default function Home() {
+  const baseUrl = "https://yessports.com/api/v1";
+  const sportsJSON = {
+    sport: {
+      id: "2",
+      name: "Cricket",
+      description:
+        "Cricket is a bat-and-ball game played between two teams of eleven players each on a cricket field. It is one of the most popular sports in the world, particularly in countries like India, Australia, England, and Pakistan.",
+      rules:
+        "Cricket involves two phases: batting and bowling/fielding. The batting team tries to score runs by hitting the ball while the bowling team tries to dismiss the batsmen and restrict runs.",
+      history:
+        "Cricket originated in England in the late 16th century and has since become widely popular, especially in former British colonies and beyond. It is known for its rich history and traditions.",
+      teams: [
+        "India",
+        "Afghanistan",
+        "Ireland",
+        "Pakistan",
+        "Australia",
+        "Sri Lanka",
+        "Bangladesh",
+        "England",
+        "West Indies",
+        "South Africa",
+        "Zimbabwe",
+        "New Zealand",
+      ],
+    },
+  };
+  const teamJSON = {
+    team: "India",
+    teamNum: 2,
+    playersList: [
+      { name: "Virat Kohli", number: "1413" },
+      { name: "Rohit Sharma", number: "576" },
+      { name: "Shikhar Dhawan", number: "1446" },
+      { name: "Shubman Gill", number: "11808" },
+      { name: "Shreyas Iyer", number: "9428" },
+      { name: "Manish Pandey", number: "1836" },
+      { name: "Mayank Agarwal", number: "2195" },
+      { name: "Prithvi Shaw", number: "12094" },
+      { name: "Cheteshwar Pujara", number: "1448" },
+      { name: "Ajinkya Rahane", number: "1447" },
+      { name: "Ruturaj Gaikwad", number: "11813" },
+      { name: "Hardik Pandya", number: "9647" },
+      { name: "Hanuma Vihari", number: "8424" },
+      { name: "Ravindra Jadeja", number: "587" },
+      { name: "Ravichandran Ashwin", number: "1593" },
+      { name: "KL Rahul", number: "8733" },
+      { name: "Sanju Samson", number: "8271" },
+      { name: "Wriddhiman Saha", number: "1465" },
+      { name: "Rishabh Pant", number: "10744" },
+      { name: "Mohammed Shami", number: "7909" },
+      { name: "Jasprit Bumrah", number: "9311" },
+      { name: "Kuldeep Yadav", number: "8292" },
+      { name: "Yuzvendra Chahal", number: "7910" },
+      { name: "Navdeep Saini", number: "9715" },
+      { name: "Shardul Thakur", number: "8683" },
+      { name: "Umesh Yadav", number: "1858" },
+      { name: "Mohammed Siraj", number: "10808" },
+    ],
+  };
+  const playerJSON = {
+    playerName: "Virat Kohli",
+    nationalTeam: "India",
+    profilePicUrl:
+      "https://static.cricbuzz.com/a/img/v1/152x152/i1/c332891/virat-kohli.jpg",
+    personalInfo: {
+      born: "Nov 05, 1988 (35 years)",
+      birthplace: "Delhi",
+      height: "5 ft 9 in (175 cm)",
+      role: "Batsman",
+      battingStyle: "Right Handed Bat",
+      bowlingStyle: "Right-arm medium",
+    },
+    description:
+      "A spunky, chubby teenager with gelled hair shot to fame after leading India to glory in the Under-19 World Cup at Kuala Lumpur in early 2008. In an Indian team filled with saint-like icons worthy of their own hagiographies, Virat Kohli, with his most un-Indian, 'bad-boy' intensity, would clearly be an outcast.Kohli's thirst for runs showed no signs of slowing down as he looted a small matter of 973 runs during the 2016 edition of the Indian Premier League, the most (by far) by any batsman in the history of the tournament However, it isn't beyond Kohli to prove his critics wrong yet again, as he continues to take criticism on his stride, setting new standards for modern batsmanship.Alas, all this didn't translate into a title triumph - one that has kept Kohli and Bangalore waiting so far (As of March 2023).",
+    teams:
+      "India, Delhi, India Red, India U19, Royal Challengers Bengaluru, Board Presidents XI, North Zone, Indians, India A, Asia XI",
+    iccRankings: {
+      batting: {
+        Test: "9",
+        ODI: "3",
+        T20: "48",
+      },
+      bowling: {
+        Test: "--",
+        ODI: "3",
+        T20: "48",
+      },
+    },
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
+    <main className="flex flex-col sm:ml-52  md:ml-56">
+      <section id="introduction" className="sm:px-12 sm:py-16">
+        <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
+          Introduction
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          Welcome to the Sports Statistics API Documentation! This API is
+          designed to provide free and accessible sports data to hobbyists,
+          students, and anyone who cannot afford paid sports APIs. Whether you
+          are building a sports application, working on a school project, or
+          learning to handle APIs in your frontend projects, this API offers a
+          comprehensive and easy-to-use interface for accessing up-to-date
+          sports information.
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Overview
+        </h4>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          The Sports Statistics API allows developers to retrieve information
+          about different sports, teams, and players. The data is scraped from
+          the Cricbuzz website and includes both historical and real-time data.
+          While the current focus is on cricket, the API will soon be expanded
+          to include other sports such as football, kabaddi, and basketball.
+        </p>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Key Benefits:
+        </h4>
+        <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+          <li>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">
+              <span className="font-semibold">Free and Accessible: </span>
+              Designed for hobbyists and students who need access to sports data
+              without the costs associated with paid APIs.
+            </p>
+          </li>
+          <li>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">
+              <span className="font-semibold">Real-Time Data: </span>
+              Provides real-time updates directly from the source, ensuring the
+              information is current and accurate.
+            </p>
+          </li>
+          <li>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">
+              <span className="font-semibold">Comprehensive Coverage: </span>
+              Access detailed information about sports, teams, and players,
+              including hard-to-find statistics for sports like kabaddi.
+            </p>
+          </li>
+          <li>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">
+              <span className="font-semibold">Historical Data: </span>
+              Offers both current and historical data, making it useful for a
+              wide range of applications.
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section id="authentication" className="border-t sm:px-12 sm:py-16">
+        <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
+          Authentication
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          <span className="font-semibold">
+            This API does not require any form of authentication.
+          </span>{" "}
+          You can start making requests immediately without needing API keys,
+          tokens, or any other credentials. This approach simplifies the process
+          and allows you to focus on integrating the data into your
+          applications.
+        </p>
+      </section>
+      <section id="endpoints" className="border-t sm:px-12 sm:py-16">
+        <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
+          Endpoints
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          This API does not require any form of authentication. The Sports
+          Statistics API provides several endpoints to access detailed
+          information about sports, teams, and players. Below is a detailed
+          explanation of each endpoint, including the structure, parameters, and
+          example responses.
+        </p>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Base URL
+        </h4>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          All API requests are made to the following base URL:
+        </p>
+      </section>
     </main>
   );
 }
