@@ -56,6 +56,6 @@ export const GET = async (req: Request, { params }: any) => {
         return new Response(JSON.stringify({ team: team, teamNum: teamNum, playersList: playerList }), { status: 200 })
 
     } catch (error) {
-        return new Response("Funny Server Error", { status: 500 })
+        return new Response("Server Error", { status: 500 })
     }
 }

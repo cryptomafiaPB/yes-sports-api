@@ -93,7 +93,7 @@ export const GET = async (req: Request, { params }: any) => {
         return new Response(JSON.stringify(sportData), { status: 200 })
     } catch (err) {
 
-        return new Response("Funny Server Error", { status: 500 })
+        return new Response("Server Error", { status: 500 })
     }
 }
 

@@ -1,5 +1,10 @@
+import loadJsConfig from "next/dist/build/load-jsconfig";
+
 export default function Home() {
   const baseUrl = "https://yessports.com/api/v1";
+  const exampleReqSports = 'curl -X GET "https://yessports.com/api/v1/cricket"';
+  const exampleReqTeam =
+    'curl -X GET "https://yessports.com/api/v1/cricket/India"';
   const sportsJSON = {
     sport: {
       id: "2",
@@ -26,6 +31,9 @@ export default function Home() {
       ],
     },
   };
+
+  const formattedSportsData = JSON.stringify(sportsJSON, null, 2);
+
   const teamJSON = {
     team: "India",
     teamNum: 2,
@@ -88,6 +96,15 @@ export default function Home() {
         T20: "48",
       },
     },
+  };
+  const exampleReqPlayer =
+    'curl -X GET "https://yessports.com/api/v1/cricket/India/1413"';
+
+  const errorResponce1 = {
+    error: "Resource not found",
+  };
+  const errorResponce2 = {
+    error: "Server error",
   };
 
   return (
@@ -180,6 +197,176 @@ export default function Home() {
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           All API requests are made to the following base URL:
         </p>
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 overflow-auto">
+          <code className={`text-sm font-mono`}>{baseUrl}</code>
+        </pre>
+      </section>
+      <section id="sports" className="border-t sm:px-12 sm:py-16">
+        <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
+          1. Sports endpoint
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          <span className="font-semibold">Endpoint:</span>
+          `/[sports]`
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6 mb-6">
+          This endpoint returns detailed information about a specific sport,
+          including a description, rules, history, and a list of teams.
+        </p>
+        <span className="font-semibold border-b pb-2">Parameters:</span>
+        <p className="leading-7 [&:not(:first-child)]:mt-6 mb-6">
+          `[<span className="font-semibold">sports</span>]`: The sports name
+          (only accepts `<span className="font-semibold">cricket</span>`, `
+          <span className="font-semibold">football</span>`, `
+          <span className="font-semibold">kabaddi</span>`, `
+          <span className="font-semibold">basketball</span>`).
+        </p>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Example Request:
+        </h4>
+
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 mb-6 overflow-auto">
+          <code className={`text-sm font-mono`}>{exampleReqSports}</code>
+        </pre>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Example Responce:
+        </h4>
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 overflow-auto">
+          <code className={`text-sm font-mono `}>{formattedSportsData}</code>
+        </pre>
+      </section>
+      <section id="teams" className="border-t sm:px-12 sm:py-16">
+        <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
+          2. Teams endpoint
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          <span className="font-semibold">Endpoint:</span>
+          `/[sports]/[team]`
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6 mb-6">
+          This endpoint returns the list of players for a specific team within a
+          given sport.
+        </p>
+        <span className="font-semibold border-b pb-2">Parameters:</span>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          `[<span className="font-semibold">sports</span>]`: The sports name
+          (only accepts `<span className="font-semibold">cricket</span>`, `
+          <span className="font-semibold">football</span>`, `
+          <span className="font-semibold">kabaddi</span>`, `
+          <span className="font-semibold">basketball</span>`).
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6 mb-6">
+          `[<span className="font-semibold border-r pb-2">team</span>]`: The
+          team name (case-sensitive, first letter of each word capitalized).
+        </p>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Example Request:
+        </h4>
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 mb-6 overflow-auto">
+          <code className={`text-sm font-mono`}>{exampleReqTeam}</code>
+        </pre>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Example Responce:
+        </h4>
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 overflow-auto max-h-[500px]">
+          <code className={`text-sm font-mono`}>
+            {JSON.stringify(teamJSON, null, 2)}
+          </code>
+        </pre>
+      </section>
+      <section id="players" className="border-t sm:px-12 sm:py-16">
+        <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
+          3. Player Details endpoint
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          <span className="font-semibold">Endpoint:</span>
+          `/[sports]/[team]/[playerNumber]`
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6 mb-6">
+          This endpoint returns detailed information about a specific player,
+          including personal info, statistics, and profile picture URL.
+        </p>
+        <span className="font-semibold border-b pb-2">Parameters:</span>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          `[<span className="font-semibold">sports</span>]`: The sports name
+          (only accepts `<span className="font-semibold">cricket</span>`, `
+          <span className="font-semibold">football</span>`, `
+          <span className="font-semibold">kabaddi</span>`, `
+          <span className="font-semibold">basketball</span>`).
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          `[<span className="font-semibold ">team</span>]`: The team name
+          (case-sensitive, first letter of each word capitalized).
+        </p>
+        <p className="leading-7 [&:not(:first-child)]:mt-6 mb-6">
+          `[<span className="font-semibold">playerNumber</span>]`: The unique
+          number associated with the player
+        </p>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Example Request:
+        </h4>
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 mb-6 overflow-auto">
+          <code className={`text-sm font-mono`}>{exampleReqPlayer}</code>
+        </pre>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Example Responce:
+        </h4>
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 overflow-auto max-h-[500px]">
+          <code className={`text-sm font-mono`}>
+            {JSON.stringify(playerJSON, null, 2)}
+          </code>
+        </pre>
+      </section>
+      <section id="errorhandling" className="border-t sm:px-12 sm:py-16">
+        <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
+          Error Handling
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          When using the Sports Statistics API, you may encounter various
+          errors. Properly handling these errors in your application is crucial
+          for providing a smooth user experience. This section outlines the
+          common errors you may encounter and how to handle them.
+        </p>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Common Errors
+        </h4>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          <span className="font-semibold ">Resource Not Found (200): </span>
+          This error occurs when the requested resource does not exist. It could
+          be due to an incorrect sport name, team name, or player number.
+        </p>
+        <h2 className="font-semibold mt-6">Example error Responce: </h2>
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 overflow-auto max-h-[500px]">
+          <code className={`text-sm font-mono`}>
+            {JSON.stringify(errorResponce1, null, 2)}
+          </code>
+        </pre>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          <span className="font-semibold ">Server error (500): </span>
+          This error indicates that there is a problem with the server. It could
+          be due to various reasons such as server overload, unexpected
+          conditions, or other issues.
+        </p>
+        <h2 className="font-semibold mt-6">Example error Responce: </h2>
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 overflow-auto max-h-[500px]">
+          <code className={`text-sm font-mono`}>
+            {JSON.stringify(errorResponce2, null, 2)}
+          </code>
+        </pre>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Handling Errors
+        </h4>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          To handle these errors effectively, your application should check for
+          these specific status codes and display appropriate messages to the
+          user.
+        </p>
+        <h2 className="font-semibold mt-6">
+          Example of Handling Errors in JavaScript:
+        </h2>
+        <pre className="rounded bg-gray-800 text-white p-3 my-4 overflow-auto max-h-[500px]">
+          <code className={`text-sm font-mono`}></code>
+        </pre>
       </section>
     </main>
   );

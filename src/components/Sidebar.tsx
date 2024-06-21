@@ -6,7 +6,7 @@ import { ScrollArea } from "./ui/scroll-area";
 
 export default function Sidebar() {
   return (
-    <div className="bg-white border-r  fixed z-1 overflow-x-hidden left-0 top-0 hidden sm:flex gap-2 flex-col sm:w-52 h-screen md:w-56">
+    <div className="bg-white border-r  fixed z-20 overflow-x-hidden left-0 top-0 hidden sm:flex gap-2 flex-col sm:w-52 h-screen md:w-56">
       <Link
         href={"/"}
         className="logo p-4 pb-0 flex justify-between items-center"
@@ -23,55 +23,55 @@ export default function Sidebar() {
       <ScrollArea className="rounded-md w-full flex items-center justify-center">
         <div className="p-4 flex flex-col">
           <Link
-            href={"/"}
+            href={"#introduction"}
             className="text-sm mb-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Introduction
           </Link>
           <Link
-            href={"/Authentication"}
+            href={"#authentication"}
             className="text-sm my-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Authentication
           </Link>
           <Link
-            href={"/Endpoints"}
+            href={"#endpoints"}
             className="text-sm my-0.5 font-normal  pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Endpoints
           </Link>
           <Link
-            href={"/Endpoints/Sports"}
+            href={"#sports"}
             className="text-sm my-0.5 font-normal pl-10 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Sports
           </Link>
           <Link
-            href={"/Endpoints/Teams"}
+            href={"#teams"}
             className="text-sm my-0.5 font-normal pl-10 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Teams
           </Link>
           <Link
-            href={"/Endpoints/Players"}
+            href={"#players"}
             className="text-sm my-0.5 font-normal pl-10 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Players
           </Link>
           <Link
-            href={"ErrorHandling"}
+            href={"#errorhandling"}
             className="text-sm my-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Error Handling
           </Link>
           <Link
-            href={"/Examples"}
+            href={"#examples"}
             className="text-sm my-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Example usage
           </Link>
           <Link
-            href={"/Contact"}
+            href={"#contact"}
             className="text-sm my-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Contact
