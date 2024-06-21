@@ -1,10 +1,13 @@
-import loadJsConfig from "next/dist/build/load-jsconfig";
+import { LinkedInLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import { Github, Mail } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
-  const baseUrl = "https://yessports.com/api/v1";
-  const exampleReqSports = 'curl -X GET "https://yessports.com/api/v1/cricket"';
+  const baseUrl = "https://yessports.vercel.app/api/v1";
+  const exampleReqSports =
+    'curl -X GET "https://yessports.vercel.app/api/v1/cricket"';
   const exampleReqTeam =
-    'curl -X GET "https://yessports.com/api/v1/cricket/India"';
+    'curl -X GET "https://yessports.vercel.app/api/v1/cricket/India"';
   const sportsJSON = {
     sport: {
       id: "2",
@@ -98,7 +101,7 @@ export default function Home() {
     },
   };
   const exampleReqPlayer =
-    'curl -X GET "https://yessports.com/api/v1/cricket/India/1413"';
+    'curl -X GET "https://yessports.vercel.app/api/v1/cricket/India/1413"';
 
   const errorResponce1 = {
     error: "Resource not found",
@@ -108,8 +111,8 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col sm:ml-52  md:ml-56">
-      <section id="introduction" className="sm:px-12 sm:py-16">
+    <main className="flex flex-col mx-8  sm:ml-52  md:ml-56">
+      <section id="introduction" className="sm:px-12 pt-28 pb-12">
         <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
           Introduction
         </h1>
@@ -122,6 +125,20 @@ export default function Home() {
           comprehensive and easy-to-use interface for accessing up-to-date
           sports information.
         </p>
+
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Github Repo 🔗
+        </h4>
+        <p className="leading-7 [&:not(:first-child)]:mt-6 mb-2">
+          👨🏼‍💻 Feel free to contribute and give it ⭐
+        </p>
+        <Link
+          href={"https://github.com/cryptomafiaPB/yes-sports-api"}
+          target="_blank"
+          className="leading-7 [&:not(:first-child)]:mt-6 text-blue-700 hover:text-blue-500 transition-all"
+        >
+          https://github.com/cryptomafiaPB/yes-sports-api
+        </Link>
         <h4 className="mt-14 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
           Overview
         </h4>
@@ -166,7 +183,7 @@ export default function Home() {
           </li>
         </ul>
       </section>
-      <section id="authentication" className="border-t sm:px-12 sm:py-16">
+      <section id="authentication" className="border-t sm:px-12 py-16">
         <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
           Authentication
         </h1>
@@ -180,7 +197,7 @@ export default function Home() {
           applications.
         </p>
       </section>
-      <section id="endpoints" className="border-t sm:px-12 sm:py-16">
+      <section id="endpoints" className="border-t sm:px-12 py-16">
         <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
           Endpoints
         </h1>
@@ -201,7 +218,7 @@ export default function Home() {
           <code className={`text-sm font-mono`}>{baseUrl}</code>
         </pre>
       </section>
-      <section id="sports" className="border-t sm:px-12 sm:py-16">
+      <section id="sports" className="border-t sm:px-12 py-16">
         <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
           1. Sports endpoint
         </h1>
@@ -235,7 +252,7 @@ export default function Home() {
           <code className={`text-sm font-mono `}>{formattedSportsData}</code>
         </pre>
       </section>
-      <section id="teams" className="border-t sm:px-12 sm:py-16">
+      <section id="teams" className="border-t sm:px-12 py-16">
         <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
           2. Teams endpoint
         </h1>
@@ -274,7 +291,7 @@ export default function Home() {
           </code>
         </pre>
       </section>
-      <section id="players" className="border-t sm:px-12 sm:py-16">
+      <section id="players" className="border-t sm:px-12 py-16">
         <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
           3. Player Details endpoint
         </h1>
@@ -317,7 +334,7 @@ export default function Home() {
           </code>
         </pre>
       </section>
-      <section id="errorhandling" className="border-t sm:px-12 sm:py-16">
+      <section id="errorhandling" className="border-t sm:px-12 py-16">
         <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
           Error Handling
         </h1>
@@ -365,8 +382,73 @@ export default function Home() {
           Example of Handling Errors in JavaScript:
         </h2>
         <pre className="rounded bg-gray-800 text-white p-3 my-4 overflow-auto max-h-[500px]">
-          <code className={`text-sm font-mono`}></code>
+          <code className={`text-sm font-mono`}>JavaScript Code</code>
         </pre>
+      </section>
+      <section id="contact" className="border-t sm:px-12 py-16">
+        <h1 className="mb-6 scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 hover:text-slate-600 hover:underline transition-all">
+          Contact
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          We would love to hear from you! Whether you have questions, feedback,
+          or need support, feel free to reach out to us. Here’s how you can get
+          in touch:
+        </p>
+        <h4 className="mt-14 flex items-center gap-2 border-b pb-2 scroll-m-20 text-xl font-semibold tracking-tight">
+          Email <Mail />
+        </h4>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          For any inquiries, support, or collaboration opportunities, please
+          email us at:
+          <br />
+          <br />
+          <span className="text-blue-600 font-mono text-base">
+            📧 john853043@gmail.com
+          </span>
+        </p>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 flex items-center gap-2 text-xl font-semibold tracking-tight">
+          Github <Github />
+        </h4>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          If you encounter any issues, have feature requests, or want to
+          contribute to the project, please use the GitHub repository:
+          <br />
+          <br />
+          <span className="font-semibold">🔗 [GitHub Repository URL]</span>
+          <br />
+          <span className="font-medium pl-8"> Issues</span>: Report bugs or
+          request features via the GitHub Issues page.
+          <br />
+          <span className="font-medium ml-8"> Pull Requests</span>: Feel free to
+          fork the repository, make your changes, and submit a pull request.
+          Check out our Contributing Guide for more details.
+        </p>
+        <h4 className="mt-14 border-b pb-2 scroll-m-20 flex items-center gap-2 text-xl font-semibold tracking-tight">
+          Social media
+        </h4>
+        <div className="leading-7 [&:not(:first-child)]:mt-6">
+          Stay updated with the latest news, updates, and discussions:
+          <br />
+          <br />
+          <div className="flex items-center gap-2">
+            <span className="font-semibold flex items-center gap-2">
+              Twitter <TwitterLogoIcon className="w-6 h-6" />:
+            </span>
+            <Link href={"https://x.com/Pranavbagal9"}>@Pranavbagal9</Link>
+          </div>
+          <br />
+          <div className="flex items-center gap-2">
+            <span className="font-semibold flex items-center gap-2">
+              Linkdein <LinkedInLogoIcon className="h-6 w-6" />:
+            </span>
+            <Link href={"www.linkedin.com/in/pranav-bagal-64075b166"}>
+              @pranav-bagal-64075b166
+            </Link>
+          </div>
+        </div>
+        <Link href={"/"} className="flex justify-center items-center mt-24">
+          Copyright@2024
+        </Link>
       </section>
     </main>
   );
