@@ -63,8 +63,8 @@ export const GET = async (req: Request, { params }: any) => {
                 },
                 bowling: {
                     Test: $('.cb-col.cb-col-25.text-left.cb-plyr-rank.text-bold:contains("Bowling")').next().text().trim(),
-                    ODI: $('.cb-col.cb-col-25.text-left.cb-plyr-rank.text-bold:contains("Batting")').next().next().text().trim(),
-                    T20: $('.cb-col.cb-col-25.text-left.cb-plyr-rank.text-bold:contains("Batting")').next().next().next().text().trim(),
+                    ODI: $('.cb-col.cb-col-25.text-left.cb-plyr-rank.text-bold:contains("Bowling")').next().next().text().trim(),
+                    T20: $('.cb-col.cb-col-25.text-left.cb-plyr-rank.text-bold:contains("Bowling")').next().next().next().text().trim(),
 
                 }
             }
