@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 import Sidebar from "@/components/Sidebar";
 import TopBar from "@/components/TopBar";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="https://i.imgur.com/L9EqYmK.png" type="image" />
       <body className={inter.className}>
+        <Analytics />
         <Sidebar />
         <TopBar />
         {children}
