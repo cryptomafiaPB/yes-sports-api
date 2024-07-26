@@ -24,55 +24,55 @@ export default function Sidebar() {
         <div className="p-4 flex flex-col">
           <Link
             href={"#introduction"}
-            className="text-sm mb-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
+            className="text-lg mb-0.5 font-medium pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Introduction
           </Link>
           <Link
             href={"#authentication"}
-            className="text-sm my-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
+            className="text-lg my-0.5 font-medium pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Authentication
           </Link>
           <Link
             href={"#endpoints"}
-            className="text-sm my-0.5 font-normal  pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
+            className="text-lg my-0.5 font-medium  pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Endpoints
           </Link>
           <Link
             href={"#sports"}
-            className="text-sm my-0.5 font-normal pl-10 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
+            className="text-lg my-0.5 font-medium pl-10 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Sports
           </Link>
           <Link
             href={"#teams"}
-            className="text-sm my-0.5 font-normal pl-10 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
+            className="text-lg my-0.5 font-medium pl-10 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Teams
           </Link>
           <Link
             href={"#players"}
-            className="text-sm my-0.5 font-normal pl-10 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
+            className="text-lg my-0.5 font-medium pl-10 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Players
           </Link>
           <Link
             href={"#errorhandling"}
-            className="text-sm my-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
+            className="text-lg my-0.5 font-medium pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Error Handling
           </Link>
           <Link
             href={"#examples"}
-            className="text-sm my-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
+            className="text-lg my-0.5 font-medium pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Example usage
           </Link>
           <Link
             href={"#contact"}
-            className="text-sm my-0.5 font-normal pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
+            className="text-lg my-0.5 font-medium pl-6 hover:bg-slate-100  hover:text-violet-700 transition-all p-2 rounded-md"
           >
             Contact
           </Link>
